@@ -14,5 +14,11 @@ namespace DemoWeek6
         {
             InitializeComponent();
         }
+
+
+        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ProductDetail());
+        }
     }
 }
