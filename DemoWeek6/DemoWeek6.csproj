@@ -18,8 +18,10 @@
   <ItemGroup>
     <None Remove="Newtonsoft.Json" />
     <None Remove="Services\" />
+    <None Remove="Design\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
+    <Folder Include="Design\" />
   </ItemGroup>
 </Project>

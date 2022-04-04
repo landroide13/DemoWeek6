@@ -2,8 +2,28 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:design="clr-namespace:DemoWeek6.Design;assembly:DemoWeek6"
+    BindingContext="{x:Static design:ProductModel.Product}"
     x:Class="DemoWeek6.ProductDetail">
     <ContentPage.Content>
-        <Label Text="Product Detail" />
+
+        <StackLayout Orientation="Vertical" Padding="10,20">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name:" />
+                <Label Text="{Binding Path=Name}" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Label Text="Description:" />
+                <Label Text="{Binding Description}" />
+            </StackLayout>
+
+            <Image Source="{Binding Path=ImageUri}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+
+            <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <Button Text="Order" x:Name="orderBtn" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.25}" />
+                <Button Text="Favorite" RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=orderBtn, Property=X, Constant=250}" />
+            </RelativeLayout>
+        </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

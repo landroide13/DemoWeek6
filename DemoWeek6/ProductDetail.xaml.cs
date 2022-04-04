@@ -11,5 +11,12 @@ namespace DemoWeek6
         {
             InitializeComponent();
         }
+
+        public ProductDetail(Services.Product product)
+        {
+            InitializeComponent();
+
+            BindingContext = product;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace DemoWee6k.Services
+namespace DemoWeek6.Services
 {
     public class Order : INotifyPropertyChanged
     {

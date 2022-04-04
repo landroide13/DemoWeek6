@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using DemoWeek6.Services;
 
 namespace DemoWeek6
 {
@@ -16,9 +17,21 @@ namespace DemoWeek6
         }
 
 
-        void Button_Clicked_1(System.Object sender, System.EventArgs e)
+        void Selected_item(System.Object sender, SelectionChangedEventArgs e)
         {
-            Navigation.PushAsync(new ProductDetail());
+            Services.Product product = e.CurrentSelection.First() as Services.Product;
+
+            Navigation.PushAsync(new ProductDetail(product));
+        }
+
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var products = await ProductService.GetProductsAsync();
+
+            BindingContext = products;
         }
     }
 }
