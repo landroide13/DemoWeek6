@@ -18,5 +18,11 @@ namespace DemoWeek6
 
             BindingContext = product;
         }
+
+        void orderBtn_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Services.Product p = BindingContext as Services.Product;
+            Navigation.PushAsync(new OrderForm(new Services.Order { ProductName = p.Name, Quantity = 1 }));
+        }
     }
 }
