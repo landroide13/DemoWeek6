@@ -6,7 +6,15 @@
     <TabbedPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Entry">
-                <Setter Property="BackgroundColor" Value="Red"></Setter>
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Value="0" Property="Text">
+                        <Setter Property="BackgroundColor" Value="Red"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+                
+            </Style>
+            <Style TargetType="Label" x:Key="fancyText">
+                <Setter Property="TextColor" Value="Red"></Setter>
             </Style>
         </ResourceDictionary>
     </TabbedPage.Resources> 
@@ -25,7 +33,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label Text="Product Name: " />
+                <Label Text="Product Name: " Style="{StaticResource fancyText}"/>
                 <Label Text="{Binding Path=ProductName}" Grid.Column="1" Grid.ColumnSpan="2"/>
 
                 <Label Text="Quantity: "  Grid.Row="1"/>
