@@ -18,15 +18,16 @@ namespace DemoWeek6
             BindingContext = target;
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             Order o = BindingContext as Order;
-            DisplayAlert("Order Placed",$"Order PLaced for {o.Quantity} of {o.ProductName}");
+            await DisplayAlert("Order Placed",$"Order PLaced for {o.Quantity} of {o.ProductName}", "OK");
+            await Navigation.PopAsync();
         }
 
-        private void DisplayAlert(string v1, string v2)
-        {
-            throw new NotImplementedException();
-        }
+        //private void DisplayAlert(string v1, string v2)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
